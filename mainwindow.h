@@ -2,43 +2,32 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QListWidget>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QLabel>
-#include <QMouseEvent>
+#include "projet.h"
+#include <QSqlDatabase>
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
-    void addTask();
-    void moveTaskToDoing();
-    void moveTaskToDone();
-    void deleteTask();
-    void updateButtonState();
+    void on_ajouter_clicked();  // Ajout projet
+    void on_supprimerprojet_clicked();  // Suppression projet
+    void on_tableprojet_clicked(int row);  // Sélection projet
+    void on_modifierprojet_clicked();  // Modification projet
+    void afficherProjets();  // Afficher tous les projets
 
 private:
-    QLineEdit *taskInput;
-    QListWidget *todoList;
-    QListWidget *doingList;
-    QListWidget *doneList;
-
-    QPushButton *moveToDoingButton;
-    QPushButton *moveToDoneButton;
-    QPushButton *deleteButton;
-
-    void moveTask(QListWidget *from, QListWidget *to);
-    void saveTasks();
-    void loadTasks();
-
-protected:
-    void mousePressEvent(QMouseEvent *event) override;
+    Ui::MainWindow *ui;
+    Projet projetActuel;  // Objet projet pour manipuler la BDD
+    void clearFields();  // Fonction pour vider les champs
 };
 
 #endif // MAINWINDOW_H

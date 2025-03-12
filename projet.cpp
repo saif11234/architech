@@ -1,109 +1,97 @@
 #include "projet.h"
-#include <QDebug>
+#include <QSqlQuery>
 #include <QSqlError>
+#include <QObject>
 
-// Constructeur
-Projet::Projet(int id, QString nom, QString etat, QString desc, float budget, QDate debut, QDate fin) {
-    this->id_projet = id;
-    this->nom_projet = nom;
-    this->etat_projet = etat;
-    this->description = desc;
+// Constructeurs
+Projet::Projet() {}
+Projet::Projet(int id_projet, QString nom_projet, QString description, float budget, QString date_debut, QString date_fin, int cin_client)
+{
+    this->id_projet = id_projet;
+    this->nom_projet = nom_projet;
+    this->description = description;
     this->budget = budget;
-    this->date_debut = debut;
-    this->date_fin = fin;
+    this->date_debut = date_debut;
+    this->date_fin = date_fin;
+    this->cin_client = cin_client;
 }
 
 // Ajouter un projet
-bool Projet::ajouter() {
-
+bool Projet::ajouterProjet()
+{
     QSqlQuery query;
-    query.prepare("INSERT INTO projet (id_projet,nom_projet,etat_projet, description, budget, date_debut, date_fin) "
-                  "VALUES (:id,:nom,:etat, :desc, :budget, :debut, :fin)");
-    query.bindValue(":id", id_projet);
-    query.bindValue(":nom", nom_projet);
-    query.bindValue(":etat", etat_projet);
-    query.bindValue(":desc", description);
+    query.prepare("INSERT INTO PROJET (ID_PROJET, NOM_PROJET, DESCRIPTION, BUDGET, DATE_DEBUT, DATE_FIN, CIN_CLIENT) "
+                  "VALUES (:id_projet, :nom_projet, :description, :budget, :date_debut, :date_fin, :cin_client)");
+
+    query.bindValue(":id_projet", id_projet);
+    query.bindValue(":nom_projet", nom_projet);
+    query.bindValue(":description", description);
     query.bindValue(":budget", budget);
-    query.bindValue(":debut", date_debut.toString("yyyy-MM-dd"));
-    query.bindValue(":fin", date_fin.toString("yyyy-MM-dd"));
+    query.bindValue(":date_debut", date_debut);
+    query.bindValue(":date_fin", date_fin);
+    query.bindValue(":cin_client", cin_client);
 
-    if (!query.exec()) {
-
-        qDebug() << "Erreur SQL: " << query.lastError().text();
-        return false;
-    }
-    return true;
+    return query.exec();
 }
 
 // Modifier un projet
-bool Projet::modifier(int id) {
-
+bool Projet::modifierProjet()
+{
     QSqlQuery query;
-    query.prepare("UPDATE projet SET nom_projet = :nom,etat_projet=:etat, description = :desc, "
-                  "budget = :budget, date_debut = :debut, date_fin = :fin WHERE id_projet = :id");
-    query.bindValue(":id", id);
-    query.bindValue(":nom", nom_projet);
-    query.bindValue(":etat", etat_projet);
-    query.bindValue(":desc", description);
-    query.bindValue(":budget", budget);
-    query.bindValue(":debut", date_debut.toString("yyyy-MM-dd"));
-    query.bindValue(":fin", date_fin.toString("yyyy-MM-dd"));
+    query.prepare("UPDATE PROJET SET "
+                  "NOM_PROJET = :nom_projet, "
+                  "DESCRIPTION = :description, "
+                  "BUDGET = :budget, "
+                  "DATE_DEBUT = :date_debut, "
+                  "DATE_FIN = :date_fin, "
+                  "CIN_CLIENT = :cin_client "
+                  "WHERE ID_PROJET = :id_projet");
 
-    if (!query.exec()) {
-        qDebug() << "Erreur lors de la modification du projet : " << query.lastError().text();
+    query.bindValue(":id_projet", id_projet);
+    query.bindValue(":nom_projet", nom_projet);
+    query.bindValue(":description", description);
+    query.bindValue(":budget", budget);
+    query.bindValue(":date_debut", date_debut);
+    query.bindValue(":date_fin", date_fin);
+    query.bindValue(":cin_client", cin_client);
+
+    if (query.exec()) {
+        return true;
+    } else {
+        qDebug() << "Erreur SQL : " << query.lastError().text();
         return false;
     }
-    return true;
 }
 
 // Supprimer un projet
-bool Projet::supprimer(int id) {
+bool Projet::supprimerProjet(int id)
+{
     QSqlQuery query;
-    query.prepare("DELETE FROM projet WHERE id_projet = :id");
-    query.bindValue(":id", id);
+    query.prepare("DELETE FROM PROJET WHERE ID_PROJET = :id_projet");
+    query.bindValue(":id_projet", id);
 
-    if (!query.exec()) {
-        qDebug() << "Erreur lors de la suppression du projet : " << query.lastError().text();
+    if (query.exec()) {
+        qDebug() << "Projet supprimé avec succès !";
+        return true;
+    } else {
+        qDebug() << "Erreur lors de la suppression : " << query.lastError().text();
         return false;
     }
-    return true;
 }
 
-// Afficher les projets dans un QSqlQueryModel
-QSqlQueryModel *Projet::afficher() {
+// Afficher les projets
+QSqlQueryModel *Projet::afficherProjets()
+{
     QSqlQueryModel *model = new QSqlQueryModel();
-    model->setQuery("SELECT id_projet, nom_projet,etat_projet, description, budget, date_debut, date_fin FROM projet");
+    model->setQuery("SELECT ID_PROJET, NOM_PROJET, DESCRIPTION, BUDGET, DATE_DEBUT, DATE_FIN, CIN_CLIENT FROM PROJET");
 
-    if (model->lastError().isValid()) {
-        qDebug() << "Erreur lors de la récupération des projets : " << model->lastError().text();
-        return nullptr;
-    }
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_PROJET"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM_PROJET"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("DESCRIPTION"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("BUDGET"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("DATE_DEBUT"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("DATE_FIN"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("CIN_CLIENT"));
 
     return model;
-}
-
-// Récupérer un projet par ID
-Projet Projet::getProjetById(int id) {
-    QSqlQuery query;
-    query.prepare("SELECT * FROM projet WHERE id_projet = :id");
-    query.bindValue(":id", id);
-
-    if (!query.exec()) {
-        qDebug() << "Erreur lors de la récupération du projet : " << query.lastError().text();
-        return Projet();
-    }
-
-    if (query.next()) {
-        return Projet(
-            query.value("id_projet").toInt(),
-            query.value("nom_projet").toString(),
-            query.value("etat_projet").toString(),
-            query.value("description").toString(),
-            query.value("budget").toFloat(),
-            query.value("date_debut").toDate(),
-            query.value("date_fin").toDate()
-            );
-    }
-
-    return Projet();
 }

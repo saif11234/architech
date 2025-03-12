@@ -4,42 +4,47 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
-#include <QDate>
+#include <QDebug>
 
-class Projet {
+class Projet
+{
     int id_projet;
     QString nom_projet;
-    QString etat_projet;
     QString description;
     float budget;
-    QDate date_debut;
-    QDate date_fin;
+    QString date_debut;
+    QString date_fin;
+    int cin_client;
 
 public:
-    Projet() {};
-    Projet(int id, QString nom,QString etat, QString desc, float budget, QDate debut, QDate fin);
+    // Constructeurs
+    Projet();
+    Projet(int id_projet, QString nom_projet, QString description, float budget, QString date_debut, QString date_fin, int cin_client);
 
-    int getId() const { return id_projet; }
-    QString getNom() const { return nom_projet; }
-    QString getEtat() const { return etat_projet; }
-    QString getDescription() const { return description; }
-    float getBudget() const { return budget; }
-    QDate getDateDebut() const { return date_debut; }
-    QDate getDateFin() const { return date_fin; }
+    // Getters
+    int getIdProjet() const { return id_projet; };
+    QString getNomProjet() const { return nom_projet; };
+    QString getDescription() const { return description; };
+    float getBudget() const { return budget; };
+    QString getDateDebut() const { return date_debut; };
+    QString getDateFin() const { return date_fin; };
+    int getCinClient() const { return cin_client; };
 
-    void setId(int id) { id_projet = id; }
-    void setNom(const QString &nom) { nom_projet = nom; }
-    void setEtat(const QString &etat) { etat_projet = etat; }
-    void setDescription(const QString &desc) { description = desc; }
-    void setBudget(float bud) { budget = bud; }
-    void setDateDebut(const QDate &debut) { date_debut = debut; }
-    void setDateFin(const QDate &fin) { date_fin = fin; }
 
-    bool ajouter();
-    bool modifier(int id);
-    bool supprimer(int id);
-    QSqlQueryModel *afficher();
-    Projet getProjetById(int id);
+    // Setters
+    void setIdProjet(int newId) { id_projet = newId; };
+    void setNomProjet(QString newNom) { nom_projet = newNom; };
+    void setDescription(QString newDesc) { description = newDesc; };
+    void setBudget(float newBudget) { budget = newBudget; };
+    void setDateDebut(QString newDateDebut) { date_debut = newDateDebut; };
+    void setDateFin(QString newDateFin) { date_fin = newDateFin; };
+    void setCinClient(int newCin) { cin_client = newCin; };
+
+    // CRUD
+    bool ajouterProjet();
+    bool modifierProjet();
+    bool supprimerProjet(int);
+    QSqlQueryModel *afficherProjets();
 };
 
 #endif // PROJET_H

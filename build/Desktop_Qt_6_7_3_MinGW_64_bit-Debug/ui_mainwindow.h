@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtQuickWidgets/QQuickWidget>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
@@ -56,23 +57,42 @@ public:
     QLineEdit *nom_projet_3;
     QLabel *label_77;
     QLineEdit *description_3;
-    QLabel *label_78;
-    QComboBox *etat_2;
     QPushButton *AjouterProjet;
-    QPushButton *annuler_3;
-    QLabel *label_79;
-    QLineEdit *id_projet_3;
+    QPushButton *AnnulerProjet;
     QLineEdit *date_debut_3;
     QLineEdit *date_fin_3;
     QLabel *label_80;
     QLineEdit *cin_client_3;
     QLabel *label_33;
+    QLabel *label_38;
+    QComboBox *etat_projet_3;
+    QLineEdit *latitude;
+    QLineEdit *longitude;
     QWidget *list_3;
-    QTableView *tableprojet_3;
-    QPushButton *modifier;
-    QPushButton *supprimer;
-    QWidget *tab_19;
-    QWidget *tab_20;
+    QTableView *tableViewProjets;
+    QPushButton *ModifierProjet;
+    QPushButton *SupprimerProjet;
+    QLineEdit *rechercheprojet;
+    QPushButton *downloadprojet;
+    QWidget *map;
+    QQuickWidget *quickWidget_MapView;
+    QPushButton *recherche_pin;
+    QLineEdit *id_pin;
+    QLabel *label_39;
+    QWidget *todolist;
+    QTableView *done;
+    QTableView *doing;
+    QTableView *todo;
+    QLabel *label_40;
+    QLabel *label_41;
+    QLabel *label_42;
+    QPushButton *movetodoing;
+    QPushButton *delete_2;
+    QPushButton *movetodone;
+    QPushButton *add;
+    QLineEdit *task;
+    QComboBox *id_employe;
+    QWidget *statistique;
     QWidget *page4_PARTENAIRES;
     QLabel *label_8;
     QWidget *page5_RENDEZVOUS;
@@ -240,6 +260,7 @@ public:
         tabWidget_2 = new QTabWidget(page3_PROJETS);
         tabWidget_2->setObjectName("tabWidget_2");
         tabWidget_2->setGeometry(QRect(190, 280, 491, 411));
+        tabWidget_2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         ajouter_5 = new QWidget();
         ajouter_5->setObjectName("ajouter_5");
         frame_4 = new QFrame(ajouter_5);
@@ -255,22 +276,22 @@ public:
 "font:14pt\"Ebrima\";"));
         label_35 = new QLabel(frame_4);
         label_35->setObjectName("label_35");
-        label_35->setGeometry(QRect(30, 140, 71, 31));
+        label_35->setGeometry(QRect(30, 120, 71, 31));
         label_35->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
 "font:14pt\"Ebrima\";"));
         label_36 = new QLabel(frame_4);
         label_36->setObjectName("label_36");
-        label_36->setGeometry(QRect(30, 210, 71, 21));
+        label_36->setGeometry(QRect(30, 190, 71, 21));
         label_36->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
 "font:14pt\"Ebrima\";"));
         label_37 = new QLabel(frame_4);
         label_37->setObjectName("label_37");
-        label_37->setGeometry(QRect(30, 180, 101, 21));
+        label_37->setGeometry(QRect(30, 160, 101, 21));
         label_37->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
 "font:14pt\"Ebrima\";"));
         budget_3 = new QLineEdit(frame_4);
         budget_3->setObjectName("budget_3");
-        budget_3->setGeometry(QRect(130, 150, 113, 21));
+        budget_3->setGeometry(QRect(130, 130, 113, 21));
         budget_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);"));
         nom_projet_3 = new QLineEdit(frame_4);
@@ -288,47 +309,24 @@ public:
         description_3->setGeometry(QRect(250, 90, 211, 111));
         description_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);"));
-        label_78 = new QLabel(frame_4);
-        label_78->setObjectName("label_78");
-        label_78->setGeometry(QRect(160, 240, 171, 21));
-        label_78->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
-"font:14pt\"Ebrima\";"));
-        etat_2 = new QComboBox(frame_4);
-        etat_2->addItem(QString());
-        etat_2->addItem(QString());
-        etat_2->addItem(QString());
-        etat_2->setObjectName("etat_2");
-        etat_2->setGeometry(QRect(150, 270, 171, 32));
-        etat_2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);"));
         AjouterProjet = new QPushButton(frame_4);
         AjouterProjet->setObjectName("AjouterProjet");
         AjouterProjet->setGeometry(QRect(50, 320, 100, 32));
         AjouterProjet->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);"));
-        annuler_3 = new QPushButton(frame_4);
-        annuler_3->setObjectName("annuler_3");
-        annuler_3->setGeometry(QRect(340, 320, 100, 32));
-        annuler_3->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+        AnnulerProjet = new QPushButton(frame_4);
+        AnnulerProjet->setObjectName("AnnulerProjet");
+        AnnulerProjet->setGeometry(QRect(340, 320, 100, 32));
+        AnnulerProjet->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);"));
-        label_79 = new QLabel(frame_4);
-        label_79->setObjectName("label_79");
-        label_79->setGeometry(QRect(30, 120, 58, 16));
-        label_79->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
-"font:14pt\"Ebrima\";"));
-        id_projet_3 = new QLineEdit(frame_4);
-        id_projet_3->setObjectName("id_projet_3");
-        id_projet_3->setGeometry(QRect(130, 120, 113, 21));
-        id_projet_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);"));
         date_debut_3 = new QLineEdit(frame_4);
         date_debut_3->setObjectName("date_debut_3");
-        date_debut_3->setGeometry(QRect(130, 180, 113, 21));
+        date_debut_3->setGeometry(QRect(130, 160, 113, 21));
         date_debut_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);"));
         date_fin_3 = new QLineEdit(frame_4);
         date_fin_3->setObjectName("date_fin_3");
-        date_fin_3->setGeometry(QRect(130, 210, 113, 21));
+        date_fin_3->setGeometry(QRect(130, 190, 113, 21));
         date_fin_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);"));
         label_80 = new QLabel(frame_4);
@@ -345,26 +343,136 @@ public:
         label_33->setObjectName("label_33");
         label_33->setGeometry(QRect(100, 10, 251, 41));
         label_33->setStyleSheet(QString::fromUtf8("font: 24pt \"Academy Engraved LET\";"));
+        label_38 = new QLabel(frame_4);
+        label_38->setObjectName("label_38");
+        label_38->setGeometry(QRect(30, 250, 71, 21));
+        label_38->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
+"font:14pt\"Ebrima\";"));
+        etat_projet_3 = new QComboBox(frame_4);
+        etat_projet_3->addItem(QString());
+        etat_projet_3->addItem(QString());
+        etat_projet_3->addItem(QString());
+        etat_projet_3->setObjectName("etat_projet_3");
+        etat_projet_3->setGeometry(QRect(130, 250, 111, 22));
+        latitude = new QLineEdit(frame_4);
+        latitude->setObjectName("latitude");
+        latitude->setGeometry(QRect(130, 220, 113, 21));
+        latitude->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);"));
+        longitude = new QLineEdit(frame_4);
+        longitude->setObjectName("longitude");
+        longitude->setGeometry(QRect(360, 220, 113, 21));
+        longitude->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);"));
         tabWidget_2->addTab(ajouter_5, QString());
         list_3 = new QWidget();
         list_3->setObjectName("list_3");
-        tableprojet_3 = new QTableView(list_3);
-        tableprojet_3->setObjectName("tableprojet_3");
-        tableprojet_3->setGeometry(QRect(0, 10, 481, 321));
-        tableprojet_3->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);"));
-        modifier = new QPushButton(list_3);
-        modifier->setObjectName("modifier");
-        modifier->setGeometry(QRect(350, 350, 75, 24));
-        supprimer = new QPushButton(list_3);
-        supprimer->setObjectName("supprimer");
-        supprimer->setGeometry(QRect(70, 350, 75, 24));
+        tableViewProjets = new QTableView(list_3);
+        tableViewProjets->setObjectName("tableViewProjets");
+        tableViewProjets->setGeometry(QRect(0, 40, 481, 291));
+        tableViewProjets->setStyleSheet(QString::fromUtf8("background-color: rgb(226, 226, 226);\n"
+"color: rgb(0, 0, 0);"));
+        ModifierProjet = new QPushButton(list_3);
+        ModifierProjet->setObjectName("ModifierProjet");
+        ModifierProjet->setGeometry(QRect(350, 350, 75, 24));
+        SupprimerProjet = new QPushButton(list_3);
+        SupprimerProjet->setObjectName("SupprimerProjet");
+        SupprimerProjet->setGeometry(QRect(70, 350, 75, 24));
+        rechercheprojet = new QLineEdit(list_3);
+        rechercheprojet->setObjectName("rechercheprojet");
+        rechercheprojet->setGeometry(QRect(60, 10, 341, 22));
+        downloadprojet = new QPushButton(list_3);
+        downloadprojet->setObjectName("downloadprojet");
+        downloadprojet->setGeometry(QRect(210, 350, 75, 24));
         tabWidget_2->addTab(list_3, QString());
-        tab_19 = new QWidget();
-        tab_19->setObjectName("tab_19");
-        tabWidget_2->addTab(tab_19, QString());
-        tab_20 = new QWidget();
-        tab_20->setObjectName("tab_20");
-        tabWidget_2->addTab(tab_20, QString());
+        map = new QWidget();
+        map->setObjectName("map");
+        quickWidget_MapView = new QQuickWidget(map);
+        quickWidget_MapView->setObjectName("quickWidget_MapView");
+        quickWidget_MapView->setGeometry(QRect(9, 29, 471, 291));
+        quickWidget_MapView->setResizeMode(QQuickWidget::ResizeMode::SizeRootObjectToView);
+        recherche_pin = new QPushButton(map);
+        recherche_pin->setObjectName("recherche_pin");
+        recherche_pin->setGeometry(QRect(350, 0, 75, 24));
+        id_pin = new QLineEdit(map);
+        id_pin->setObjectName("id_pin");
+        id_pin->setGeometry(QRect(200, 0, 141, 22));
+        label_39 = new QLabel(map);
+        label_39->setObjectName("label_39");
+        label_39->setGeometry(QRect(0, -10, 191, 31));
+        label_39->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
+"font:14pt\"Ebrima\";"));
+        tabWidget_2->addTab(map, QString());
+        todolist = new QWidget();
+        todolist->setObjectName("todolist");
+        todolist->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 72, 72);"));
+        done = new QTableView(todolist);
+        done->setObjectName("done");
+        done->setGeometry(QRect(330, 60, 141, 251));
+        done->setStyleSheet(QString::fromUtf8("background-color: rgb(64, 152, 63);\n"
+"color: gb(4,4,4);"));
+        doing = new QTableView(todolist);
+        doing->setObjectName("doing");
+        doing->setGeometry(QRect(170, 60, 141, 251));
+        doing->setStyleSheet(QString::fromUtf8("background-color: rgb(131, 131, 131);\n"
+"color: rgb(4, 4, 4);"));
+        todo = new QTableView(todolist);
+        todo->setObjectName("todo");
+        todo->setGeometry(QRect(10, 60, 141, 251));
+        todo->setStyleSheet(QString::fromUtf8("background-color: rgb(86, 86, 86);\n"
+"color: gb(4, 4, 4);"));
+        label_40 = new QLabel(todolist);
+        label_40->setObjectName("label_40");
+        label_40->setGeometry(QRect(50, 40, 58, 16));
+        label_40->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
+"font:14pt\"Ebrima\";"));
+        label_41 = new QLabel(todolist);
+        label_41->setObjectName("label_41");
+        label_41->setGeometry(QRect(210, 40, 58, 16));
+        label_41->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
+"font:14pt\"Ebrima\";"));
+        label_42 = new QLabel(todolist);
+        label_42->setObjectName("label_42");
+        label_42->setGeometry(QRect(370, 40, 58, 16));
+        label_42->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
+"font:14pt\"Ebrima\";"));
+        movetodoing = new QPushButton(todolist);
+        movetodoing->setObjectName("movetodoing");
+        movetodoing->setGeometry(QRect(30, 330, 91, 24));
+        movetodoing->setStyleSheet(QString::fromUtf8("\n"
+"background-color: rgb(131, 131, 131);\n"
+""));
+        delete_2 = new QPushButton(todolist);
+        delete_2->setObjectName("delete_2");
+        delete_2->setGeometry(QRect(354, 330, 81, 24));
+        delete_2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 1, 18);"));
+        movetodone = new QPushButton(todolist);
+        movetodone->setObjectName("movetodone");
+        movetodone->setGeometry(QRect(200, 330, 81, 24));
+        movetodone->setStyleSheet(QString::fromUtf8("background-color: rgb(64, 152, 63);"));
+        add = new QPushButton(todolist);
+        add->setObjectName("add");
+        add->setGeometry(QRect(220, 10, 75, 24));
+        add->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 170, 0);"));
+        task = new QLineEdit(todolist);
+        task->setObjectName("task");
+        task->setGeometry(QRect(20, 10, 201, 21));
+        task->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);"));
+        id_employe = new QComboBox(todolist);
+        id_employe->addItem(QString());
+        id_employe->addItem(QString());
+        id_employe->addItem(QString());
+        id_employe->addItem(QString());
+        id_employe->addItem(QString());
+        id_employe->addItem(QString());
+        id_employe->setObjectName("id_employe");
+        id_employe->setGeometry(QRect(370, 0, 111, 22));
+        tabWidget_2->addTab(todolist, QString());
+        statistique = new QWidget();
+        statistique->setObjectName("statistique");
+        statistique->setMinimumSize(QSize(0, 0));
+        tabWidget_2->addTab(statistique, QString());
         stackedWidget->addWidget(page3_PROJETS);
         page4_PARTENAIRES = new QWidget();
         page4_PARTENAIRES->setObjectName("page4_PARTENAIRES");
@@ -403,7 +511,7 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(1);
-        tabWidget_2->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -428,22 +536,39 @@ public:
         label_36->setText(QCoreApplication::translate("MainWindow", "date fin:", nullptr));
         label_37->setText(QCoreApplication::translate("MainWindow", "date debut:", nullptr));
         label_77->setText(QCoreApplication::translate("MainWindow", "description:", nullptr));
-        label_78->setText(QCoreApplication::translate("MainWindow", "\303\251tat d'avancement:", nullptr));
-        etat_2->setItemText(0, QCoreApplication::translate("MainWindow", "en cours", nullptr));
-        etat_2->setItemText(1, QCoreApplication::translate("MainWindow", "termin\303\251", nullptr));
-        etat_2->setItemText(2, QCoreApplication::translate("MainWindow", "en attente", nullptr));
-
         AjouterProjet->setText(QCoreApplication::translate("MainWindow", "ajouter", nullptr));
-        annuler_3->setText(QCoreApplication::translate("MainWindow", "annuler", nullptr));
-        label_79->setText(QCoreApplication::translate("MainWindow", "id:", nullptr));
+        AnnulerProjet->setText(QCoreApplication::translate("MainWindow", "annuler", nullptr));
         label_80->setText(QCoreApplication::translate("MainWindow", "cin_client:", nullptr));
         label_33->setText(QCoreApplication::translate("MainWindow", "ajouter un projet", nullptr));
+        label_38->setText(QCoreApplication::translate("MainWindow", "etat:", nullptr));
+        etat_projet_3->setItemText(0, QCoreApplication::translate("MainWindow", "en cours", nullptr));
+        etat_projet_3->setItemText(1, QCoreApplication::translate("MainWindow", "termin\303\251", nullptr));
+        etat_projet_3->setItemText(2, QCoreApplication::translate("MainWindow", "en attente", nullptr));
+
         tabWidget_2->setTabText(tabWidget_2->indexOf(ajouter_5), QCoreApplication::translate("MainWindow", "ajouter", nullptr));
-        modifier->setText(QCoreApplication::translate("MainWindow", "modifier", nullptr));
-        supprimer->setText(QCoreApplication::translate("MainWindow", "supprimer", nullptr));
+        ModifierProjet->setText(QCoreApplication::translate("MainWindow", "modifier", nullptr));
+        SupprimerProjet->setText(QCoreApplication::translate("MainWindow", "supprimer", nullptr));
+        downloadprojet->setText(QCoreApplication::translate("MainWindow", "download", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(list_3), QCoreApplication::translate("MainWindow", "list des projets", nullptr));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_19), QCoreApplication::translate("MainWindow", "map", nullptr));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_20), QCoreApplication::translate("MainWindow", "todolist", nullptr));
+        recherche_pin->setText(QCoreApplication::translate("MainWindow", "rechercher", nullptr));
+        label_39->setText(QCoreApplication::translate("MainWindow", "Entrer un id du projet:", nullptr));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(map), QCoreApplication::translate("MainWindow", "map", nullptr));
+        label_40->setText(QCoreApplication::translate("MainWindow", "TO DO", nullptr));
+        label_41->setText(QCoreApplication::translate("MainWindow", "DOING", nullptr));
+        label_42->setText(QCoreApplication::translate("MainWindow", "DONE", nullptr));
+        movetodoing->setText(QCoreApplication::translate("MainWindow", "move to doing", nullptr));
+        delete_2->setText(QCoreApplication::translate("MainWindow", "delete", nullptr));
+        movetodone->setText(QCoreApplication::translate("MainWindow", "move to done", nullptr));
+        add->setText(QCoreApplication::translate("MainWindow", "add", nullptr));
+        id_employe->setItemText(0, QCoreApplication::translate("MainWindow", "choisir employe", nullptr));
+        id_employe->setItemText(1, QCoreApplication::translate("MainWindow", "1", nullptr));
+        id_employe->setItemText(2, QCoreApplication::translate("MainWindow", "2", nullptr));
+        id_employe->setItemText(3, QCoreApplication::translate("MainWindow", "3", nullptr));
+        id_employe->setItemText(4, QCoreApplication::translate("MainWindow", "4", nullptr));
+        id_employe->setItemText(5, QCoreApplication::translate("MainWindow", "5", nullptr));
+
+        tabWidget_2->setTabText(tabWidget_2->indexOf(todolist), QCoreApplication::translate("MainWindow", "todolist", nullptr));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(statistique), QCoreApplication::translate("MainWindow", "statistique", nullptr));
         label_8->setText(QString());
         label_10->setText(QString());
         label_12->setText(QString());

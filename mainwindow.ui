@@ -309,8 +309,11 @@ QLabel:pressed {
         <height>411</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="ajouter_5">
        <attribute name="title">
@@ -355,7 +358,7 @@ font:14pt&quot;Ebrima&quot;;</string>
          <property name="geometry">
           <rect>
            <x>30</x>
-           <y>140</y>
+           <y>120</y>
            <width>71</width>
            <height>31</height>
           </rect>
@@ -372,7 +375,7 @@ font:14pt&quot;Ebrima&quot;;</string>
          <property name="geometry">
           <rect>
            <x>30</x>
-           <y>210</y>
+           <y>190</y>
            <width>71</width>
            <height>21</height>
           </rect>
@@ -389,7 +392,7 @@ font:14pt&quot;Ebrima&quot;;</string>
          <property name="geometry">
           <rect>
            <x>30</x>
-           <y>180</y>
+           <y>160</y>
            <width>101</width>
            <height>21</height>
           </rect>
@@ -406,7 +409,7 @@ font:14pt&quot;Ebrima&quot;;</string>
          <property name="geometry">
           <rect>
            <x>130</x>
-           <y>150</y>
+           <y>130</y>
            <width>113</width>
            <height>21</height>
           </rect>
@@ -478,7 +481,7 @@ background-color: rgb(255, 255, 255);</string>
           <string>ajouter</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="annuler_3">
+        <widget class="QPushButton" name="AnnulerProjet">
          <property name="geometry">
           <rect>
            <x>340</x>
@@ -495,42 +498,11 @@ background-color: rgb(255, 255, 255);</string>
           <string>annuler</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_79">
-         <property name="geometry">
-          <rect>
-           <x>30</x>
-           <y>120</y>
-           <width>58</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color:rgb(0,0,127);
-font:14pt&quot;Ebrima&quot;;</string>
-         </property>
-         <property name="text">
-          <string>id:</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="id_projet_3">
-         <property name="geometry">
-          <rect>
-           <x>130</x>
-           <y>120</y>
-           <width>113</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-         </property>
-        </widget>
         <widget class="QLineEdit" name="date_debut_3">
          <property name="geometry">
           <rect>
            <x>130</x>
-           <y>180</y>
+           <y>160</y>
            <width>113</width>
            <height>21</height>
           </rect>
@@ -544,7 +516,7 @@ color: rgb(0, 0, 0);</string>
          <property name="geometry">
           <rect>
            <x>130</x>
-           <y>210</y>
+           <y>190</y>
            <width>113</width>
            <height>21</height>
           </rect>
@@ -601,6 +573,76 @@ color: rgb(0, 0, 0);</string>
           <string>ajouter un projet</string>
          </property>
         </widget>
+        <widget class="QLabel" name="label_38">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>250</y>
+           <width>71</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:rgb(0,0,127);
+font:14pt&quot;Ebrima&quot;;</string>
+         </property>
+         <property name="text">
+          <string>etat:</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="etat_projet_3">
+         <property name="geometry">
+          <rect>
+           <x>130</x>
+           <y>250</y>
+           <width>111</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>en cours</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>terminé</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>en attente</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLineEdit" name="latitude">
+         <property name="geometry">
+          <rect>
+           <x>130</x>
+           <y>220</y>
+           <width>113</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="longitude">
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>220</y>
+           <width>113</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+         </property>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="list_3">
@@ -611,13 +653,13 @@ color: rgb(0, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>10</y>
+          <y>40</y>
           <width>481</width>
-          <height>321</height>
+          <height>291</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(0, 0, 255);
+         <string notr="true">background-color: rgb(226, 226, 226);
 color: rgb(0, 0, 0);</string>
         </property>
        </widget>
@@ -647,15 +689,318 @@ color: rgb(0, 0, 0);</string>
          <string>supprimer</string>
         </property>
        </widget>
+       <widget class="QLineEdit" name="rechercheprojet">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>10</y>
+          <width>341</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="downloadprojet">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>350</y>
+          <width>75</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>download</string>
+        </property>
+       </widget>
       </widget>
-      <widget class="QWidget" name="tab_19">
+      <widget class="QWidget" name="map">
        <attribute name="title">
         <string>map</string>
        </attribute>
+       <widget class="QQuickWidget" name="quickWidget_MapView">
+        <property name="geometry">
+         <rect>
+          <x>9</x>
+          <y>29</y>
+          <width>471</width>
+          <height>291</height>
+         </rect>
+        </property>
+        <property name="resizeMode">
+         <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="recherche_pin">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>0</y>
+          <width>75</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>rechercher</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="id_pin">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>0</y>
+          <width>141</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_39">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-10</y>
+          <width>191</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:rgb(0,0,127);
+font:14pt&quot;Ebrima&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Entrer un id du projet:</string>
+        </property>
+       </widget>
       </widget>
-      <widget class="QWidget" name="tab_20">
+      <widget class="QWidget" name="todolist">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(72, 72, 72);</string>
+       </property>
        <attribute name="title">
         <string>todolist</string>
+       </attribute>
+       <widget class="QTableView" name="done">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>60</y>
+          <width>141</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(64, 152, 63);
+color: gb(4,4,4);</string>
+        </property>
+       </widget>
+       <widget class="QTableView" name="doing">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>60</y>
+          <width>141</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(131, 131, 131);
+color: rgb(4, 4, 4);</string>
+        </property>
+       </widget>
+       <widget class="QTableView" name="todo">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>141</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(86, 86, 86);
+color: gb(4, 4, 4);</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_40">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>40</y>
+          <width>58</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font:14pt&quot;Ebrima&quot;;</string>
+        </property>
+        <property name="text">
+         <string>TO DO</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_41">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>40</y>
+          <width>58</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font:14pt&quot;Ebrima&quot;;</string>
+        </property>
+        <property name="text">
+         <string>DOING</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_42">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>40</y>
+          <width>58</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font:14pt&quot;Ebrima&quot;;</string>
+        </property>
+        <property name="text">
+         <string>DONE</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="movetodoing">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>330</y>
+          <width>91</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+background-color: rgb(131, 131, 131);
+</string>
+        </property>
+        <property name="text">
+         <string>move to doing</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="delete_2">
+        <property name="geometry">
+         <rect>
+          <x>354</x>
+          <y>330</y>
+          <width>81</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 1, 18);</string>
+        </property>
+        <property name="text">
+         <string>delete</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="movetodone">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>330</y>
+          <width>81</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(64, 152, 63);</string>
+        </property>
+        <property name="text">
+         <string>move to done</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="add">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>10</y>
+          <width>75</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(0, 170, 0);</string>
+        </property>
+        <property name="text">
+         <string>add</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="task">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>201</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="id_employe">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>0</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>choisir employe</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </item>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="statistique">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <attribute name="title">
+        <string>statistique</string>
        </attribute>
       </widget>
      </widget>
@@ -745,6 +1090,13 @@ color: rgb(0, 0, 0);</string>
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">QtQuickWidgets/QQuickWidget</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="res.qrc"/>
  </resources>

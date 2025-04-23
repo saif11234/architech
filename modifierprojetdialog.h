@@ -16,14 +16,14 @@ public:
     explicit ModifierProjetDialog(QWidget *parent = nullptr);
     ~ModifierProjetDialog();
 
-    void setProjet(const Projet &projet); // Remplir les champs avec les infos du projet
+    void setProjet(const Projet &projet);
 
 private slots:
-    void on_buttonValider_clicked(); // Quand l'utilisateur valide
+    void on_buttonValider_clicked();
 
 private:
     Ui::ModifierProjetDialog *ui;
-    int projetId; // Stocker l'ID du projet
+    int projetId;
 };
 
 #endif // MODIFIERPROJETDIALOG_H

@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>back.png</file>
         <file>logo.jpg</file>
+        <file>QmlMap.qml</file>
+        <file>marker.png</file>
     </qresource>
 </RCC>

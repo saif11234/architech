@@ -43,6 +43,8 @@ public:
     QComboBox *comboBox;
     QLineEdit *latitude;
     QLineEdit *longitude;
+    QLabel *label_39;
+    QLabel *label_40;
 
     void setupUi(QDialog *ModifierProjetDialog)
     {
@@ -150,6 +152,16 @@ public:
         longitude->setGeometry(QRect(350, 240, 113, 21));
         longitude->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);"));
+        label_39 = new QLabel(frame_4);
+        label_39->setObjectName("label_39");
+        label_39->setGeometry(QRect(30, 240, 71, 21));
+        label_39->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
+"font:14pt\"Ebrima\";"));
+        label_40 = new QLabel(frame_4);
+        label_40->setObjectName("label_40");
+        label_40->setGeometry(QRect(260, 240, 91, 21));
+        label_40->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
+"font:14pt\"Ebrima\";"));
 
         retranslateUi(ModifierProjetDialog);
 
@@ -173,6 +185,8 @@ public:
         comboBox->setItemText(1, QCoreApplication::translate("ModifierProjetDialog", "termin\303\251", nullptr));
         comboBox->setItemText(2, QCoreApplication::translate("ModifierProjetDialog", "en attente", nullptr));
 
+        label_39->setText(QCoreApplication::translate("ModifierProjetDialog", "latitude:", nullptr));
+        label_40->setText(QCoreApplication::translate("ModifierProjetDialog", "longitude:", nullptr));
     } // retranslateUi
 
 };

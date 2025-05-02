@@ -1,4 +1,3 @@
-// projetmodel.cpp
 #include "projetmodel.h"
 #include <QSqlRecord>
 
@@ -73,13 +72,10 @@ void ProjetModel::setProjets(const QList<Projet> &projets)
 
 void ProjetModel::refreshProjets()
 {
-    // Create an instance of Projet to access the database methods
     Projet projetHelper;
 
-    // Get all projects from the database
     QSqlQueryModel* sqlModel = projetHelper.afficherProjets();
 
-    // Convert the SQL model to our list
     QList<Projet> projets;
     for (int i = 0; i < sqlModel->rowCount(); ++i) {
         int id = sqlModel->record(i).value("ID_PROJET").toInt();
@@ -97,9 +93,7 @@ void ProjetModel::refreshProjets()
         projets.append(projet);
     }
 
-    // Update the model
     setProjets(projets);
 
-    // Clean up
     delete sqlModel;
 }

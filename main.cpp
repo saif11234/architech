@@ -2,18 +2,18 @@
 #include <QApplication>
 #include <QMessageBox>
 #include "connection.h"
-#include "projetmodel.h"        // 👈 Inclure le header du modèle
-#include <QQmlEngine>           // 👈 Nécessaire pour qmlRegisterType
-#include <QtQml>                // 👈 Nécessaire aussi
+#include "empreinte.h"
+#include "projetmodel.h"
+#include <QQmlEngine>
+#include <QtQml>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    // ✅ Enregistrement du modèle C++ pour qu'il soit reconnu dans QML
     qmlRegisterType<ProjetModel>("com.yourcompany.models", 1, 0, "ProjetModel");
 
-    MainWindow w;
+    empreinte w;
     Connection c;
     bool test = c.createconnect();
 

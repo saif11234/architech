@@ -1,8 +1,10 @@
 QT       += core gui
 QT       += sql
 QT       += charts
-QT += core gui widgets sql positioning quick location quickwidgets
-QT += quick widgets quickcontrols2 location positioning
+QT       += quickwidgets
+QT       += quick widgets quickcontrols2 location positioning
+QT       += serialport
+QT      += multimedia multimediawidgets
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -15,6 +17,7 @@ CONFIG += c++17
 DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000
 SOURCES += \
     connection.cpp \
+    empreinte.cpp \
     main.cpp \
     mainwindow.cpp \
     modifierprojetdialog.cpp \
@@ -23,15 +26,16 @@ SOURCES += \
 
 HEADERS += \
     connection.h \
+    empreinte.h \
     mainwindow.h \
     modifierprojetdialog.h \
     projet.h \
     projetmodel.h
 
 FORMS += \
+    empreinte.ui \
     mainwindow.ui \
     modifierprojetdialog.ui
-
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

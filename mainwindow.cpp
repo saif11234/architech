@@ -2,6 +2,7 @@
 #include "qlayout.h"
 #include "ui_mainwindow.h"
 #include "QSqlError"
+#include "empreinte.h"
 #include "modifierprojetdialog.h"
 #include <QString>
 #include <QDateTime>
@@ -70,17 +71,6 @@ void MainWindow::on_Projets_clicked()
                                   Q_ARG(QVariant, QVariant(36.8979693)),
                                   Q_ARG(QVariant, QVariant(10.1890552)));
     }
-    // Set color for "add" button
-    ui->add->setStyleSheet("background-color: rgb(0, 170, 0);");
-
-    // Set color for "movetodoing" button
-    ui->movetodoing->setStyleSheet("background-color: rgb(255, 85, 6);");
-
-    // Set color for "movetodone" button
-    ui->movetodone->setStyleSheet("background-color: rgb(0, 255, 0);"); // Green
-
-    // Set color for "delete_2" button
-    ui->delete_2->setStyleSheet("background-color: rgb(255, 0, 0);"); // Red
 
 }
 
@@ -181,6 +171,7 @@ void MainWindow::on_AjouterProjet_clicked()
         ui->latitude->clear();
         ui->longitude->clear();
         afficherStatistiquesEtat();
+        m_projetModel->refreshProjets();
     } else {
         QMessageBox::critical(this, "Erreur", "L'ajout du projet a échoué.");
     }
@@ -214,6 +205,7 @@ void MainWindow::on_ModifierProjet_clicked()
     if (dialog.exec() == QDialog::Accepted) {
         ui->tableViewProjets->setModel(projet.afficherProjets());
         afficherStatistiquesEtat();
+        m_projetModel->refreshProjets();
     }
 }
 
@@ -235,6 +227,7 @@ void MainWindow::on_SupprimerProjet_clicked()
         ui->tableViewProjets->setModel(projet.afficherProjets());
         afficherStatistiquesEtat();
         QMessageBox::information(this, "Succès", "Projet supprimé avec succès !");
+        m_projetModel->refreshProjets();
     } else {
         QMessageBox::critical(this, "Erreur", "La suppression du projet a échoué.");
     }
@@ -471,22 +464,17 @@ void MainWindow::on_add_clicked()
         return;
     }
 
-    // Check if the task already exists for the same employee and content
     QSqlQuery checkQuery;
     checkQuery.prepare("SELECT COUNT(*) FROM TASK WHERE ID_EMPLOYE = :id_employe AND CONTENU = :contenu");
     checkQuery.bindValue(":id_employe", employeeId);
     checkQuery.bindValue(":contenu", taskContent);
 
     if (checkQuery.exec() && checkQuery.next() && checkQuery.value(0).toInt() > 0) {
-        // Show a message box if the task already exists
-        QMessageBox::information(this, "Duplicate Task", "A task with the same content already exists for this employee.");
-        return; // Exit if the task already exists
+        QMessageBox::information(this, "Duplicate Task", "ce task exister pour ce employee.");
+        return;
     }
 
-    // Generate a new task ID
     int taskId = generateUniqueTaskId();
-
-    // Insert the new task
     QSqlQuery query;
     query.prepare("INSERT INTO TASK (ID_TASK, CONTENU, ID_EMPLOYE, TYPE) "
                   "VALUES (:id_task, :contenu, :id_employe, :type)");
@@ -496,7 +484,7 @@ void MainWindow::on_add_clicked()
     query.bindValue(":type", 1);
 
     if (query.exec()) {
-        qDebug() << "Task added successfully!";
+        qDebug() << "Task ajouter avec succe!";
         displayTasks(employeeId);
         ui->task->clear();
     } else {
@@ -552,7 +540,7 @@ void MainWindow::moveTask(int newType,int taskId)
         query.bindValue(":id_task", taskId);
 
         if (query.exec()) {
-            qDebug() << "Task moved successfully!";
+            qDebug() << "Task passer avec succee!";
             displayTasks(ui->id_employe->currentText().toInt());
         } else {
             qDebug() << "Error moving task: " << query.lastError().text();
@@ -598,7 +586,6 @@ void MainWindow::on_recherche_pin_clicked()
             double latitude = query.value(0).toDouble();
             double longitude = query.value(1).toDouble();
 
-            // Envoi des coordonnées au QML
             QVariant returnedValue;
             QVariant lat = latitude;
             QVariant lon = longitude;

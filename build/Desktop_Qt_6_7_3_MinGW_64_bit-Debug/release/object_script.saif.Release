@@ -1,10 +1,12 @@
 release/connection.o
+release/empreinte.o
 release/main.o
 release/mainwindow.o
 release/modifierprojetdialog.o
 release/projet.o
 release/projetmodel.o
 release/qrc_res.o
+release/moc_empreinte.o
 release/moc_mainwindow.o
 release/moc_modifierprojetdialog.o
 release/moc_projetmodel.o

@@ -410,19 +410,22 @@ Makefile: ../../saif.pro C:/qt/6.7.3/mingw_64/mkspecs/win32-g++/qmake.conf C:/qt
 		C:/qt/6.7.3/mingw_64/lib/Qt6Charts.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6OpenGLWidgets.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6QuickWidgets.prl \
+		C:/qt/6.7.3/mingw_64/lib/Qt6MultimediaWidgets.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6Widgets.prl \
+		C:/qt/6.7.3/mingw_64/lib/Qt6QuickControls2.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6Location.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6PositioningQuick.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6QuickShapes.prl \
-		C:/qt/6.7.3/mingw_64/lib/Qt6QuickControls2.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6Quick.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6OpenGL.prl \
+		C:/qt/6.7.3/mingw_64/lib/Qt6Multimedia.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6Gui.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6Sql.prl \
-		C:/qt/6.7.3/mingw_64/lib/Qt6Positioning.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6QmlModels.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6Qml.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6Network.prl \
+		C:/qt/6.7.3/mingw_64/lib/Qt6Positioning.prl \
+		C:/qt/6.7.3/mingw_64/lib/Qt6SerialPort.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6Core.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6QmlBuiltins.prl \
 		C:/qt/6.7.3/mingw_64/lib/Qt6EntryPoint.prl \
@@ -769,19 +772,22 @@ C:/qt/6.7.3/mingw_64/mkspecs/features/lex.prf:
 C:/qt/6.7.3/mingw_64/lib/Qt6Charts.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6OpenGLWidgets.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6QuickWidgets.prl:
+C:/qt/6.7.3/mingw_64/lib/Qt6MultimediaWidgets.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6Widgets.prl:
+C:/qt/6.7.3/mingw_64/lib/Qt6QuickControls2.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6Location.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6PositioningQuick.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6QuickShapes.prl:
-C:/qt/6.7.3/mingw_64/lib/Qt6QuickControls2.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6Quick.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6OpenGL.prl:
+C:/qt/6.7.3/mingw_64/lib/Qt6Multimedia.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6Gui.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6Sql.prl:
-C:/qt/6.7.3/mingw_64/lib/Qt6Positioning.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6QmlModels.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6Qml.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6Network.prl:
+C:/qt/6.7.3/mingw_64/lib/Qt6Positioning.prl:
+C:/qt/6.7.3/mingw_64/lib/Qt6SerialPort.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6Core.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6QmlBuiltins.prl:
 C:/qt/6.7.3/mingw_64/lib/Qt6EntryPoint.prl:

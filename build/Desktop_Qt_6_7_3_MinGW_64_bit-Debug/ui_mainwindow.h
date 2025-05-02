@@ -68,6 +68,8 @@ public:
     QComboBox *etat_projet_3;
     QLineEdit *latitude;
     QLineEdit *longitude;
+    QLabel *label_43;
+    QLabel *label_44;
     QWidget *list_3;
     QTableView *tableViewProjets;
     QPushButton *ModifierProjet;
@@ -364,6 +366,16 @@ public:
         longitude->setGeometry(QRect(360, 220, 113, 21));
         longitude->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);"));
+        label_43 = new QLabel(frame_4);
+        label_43->setObjectName("label_43");
+        label_43->setGeometry(QRect(30, 220, 71, 21));
+        label_43->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
+"font:14pt\"Ebrima\";"));
+        label_44 = new QLabel(frame_4);
+        label_44->setObjectName("label_44");
+        label_44->setGeometry(QRect(260, 210, 91, 31));
+        label_44->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
+"font:14pt\"Ebrima\";"));
         tabWidget_2->addTab(ajouter_5, QString());
         list_3 = new QWidget();
         list_3->setObjectName("list_3");
@@ -389,17 +401,17 @@ public:
         map->setObjectName("map");
         quickWidget_MapView = new QQuickWidget(map);
         quickWidget_MapView->setObjectName("quickWidget_MapView");
-        quickWidget_MapView->setGeometry(QRect(9, 29, 471, 291));
+        quickWidget_MapView->setGeometry(QRect(9, 50, 471, 291));
         quickWidget_MapView->setResizeMode(QQuickWidget::ResizeMode::SizeRootObjectToView);
         recherche_pin = new QPushButton(map);
         recherche_pin->setObjectName("recherche_pin");
-        recherche_pin->setGeometry(QRect(350, 0, 75, 24));
+        recherche_pin->setGeometry(QRect(350, 10, 75, 24));
         id_pin = new QLineEdit(map);
         id_pin->setObjectName("id_pin");
-        id_pin->setGeometry(QRect(200, 0, 141, 22));
+        id_pin->setGeometry(QRect(200, 10, 141, 22));
         label_39 = new QLabel(map);
         label_39->setObjectName("label_39");
-        label_39->setGeometry(QRect(0, -10, 191, 31));
+        label_39->setGeometry(QRect(0, 0, 191, 31));
         label_39->setStyleSheet(QString::fromUtf8("color:rgb(0,0,127);\n"
 "font:14pt\"Ebrima\";"));
         tabWidget_2->addTab(map, QString());
@@ -511,7 +523,7 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(1);
-        tabWidget_2->setCurrentIndex(3);
+        tabWidget_2->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -545,10 +557,12 @@ public:
         etat_projet_3->setItemText(1, QCoreApplication::translate("MainWindow", "termin\303\251", nullptr));
         etat_projet_3->setItemText(2, QCoreApplication::translate("MainWindow", "en attente", nullptr));
 
+        label_43->setText(QCoreApplication::translate("MainWindow", "latitude:", nullptr));
+        label_44->setText(QCoreApplication::translate("MainWindow", "longitude:", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(ajouter_5), QCoreApplication::translate("MainWindow", "ajouter", nullptr));
         ModifierProjet->setText(QCoreApplication::translate("MainWindow", "modifier", nullptr));
         SupprimerProjet->setText(QCoreApplication::translate("MainWindow", "supprimer", nullptr));
-        downloadprojet->setText(QCoreApplication::translate("MainWindow", "download", nullptr));
+        downloadprojet->setText(QCoreApplication::translate("MainWindow", "telecharger", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(list_3), QCoreApplication::translate("MainWindow", "list des projets", nullptr));
         recherche_pin->setText(QCoreApplication::translate("MainWindow", "rechercher", nullptr));
         label_39->setText(QCoreApplication::translate("MainWindow", "Entrer un id du projet:", nullptr));
@@ -556,10 +570,10 @@ public:
         label_40->setText(QCoreApplication::translate("MainWindow", "TO DO", nullptr));
         label_41->setText(QCoreApplication::translate("MainWindow", "DOING", nullptr));
         label_42->setText(QCoreApplication::translate("MainWindow", "DONE", nullptr));
-        movetodoing->setText(QCoreApplication::translate("MainWindow", "move to doing", nullptr));
-        delete_2->setText(QCoreApplication::translate("MainWindow", "delete", nullptr));
-        movetodone->setText(QCoreApplication::translate("MainWindow", "move to done", nullptr));
-        add->setText(QCoreApplication::translate("MainWindow", "add", nullptr));
+        movetodoing->setText(QCoreApplication::translate("MainWindow", "passer a doing", nullptr));
+        delete_2->setText(QCoreApplication::translate("MainWindow", "supprimer", nullptr));
+        movetodone->setText(QCoreApplication::translate("MainWindow", "passer a done", nullptr));
+        add->setText(QCoreApplication::translate("MainWindow", "ajouter", nullptr));
         id_employe->setItemText(0, QCoreApplication::translate("MainWindow", "choisir employe", nullptr));
         id_employe->setItemText(1, QCoreApplication::translate("MainWindow", "1", nullptr));
         id_employe->setItemText(2, QCoreApplication::translate("MainWindow", "2", nullptr));

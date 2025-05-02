@@ -1,4 +1,3 @@
-// projetmodel.h
 #ifndef PROJETMODEL_H
 #define PROJETMODEL_H
 
@@ -26,14 +25,12 @@ public:
 
     explicit ProjetModel(QObject *parent = nullptr);
 
-    // Basic functionality:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
 
-    // Add methods to update the model
     void setProjets(const QList<Projet> &projets);
-    void refreshProjets(); // Method to call when you want to update from the database
+    void refreshProjets();
 
 private:
     QList<Projet> m_projets;

@@ -337,6 +337,40 @@ color: rgb(0, 0, 0);</string>
 color: rgb(0, 0, 0);</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_39">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>240</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(0,0,127);
+font:14pt&quot;Ebrima&quot;;</string>
+    </property>
+    <property name="text">
+     <string>latitude:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_40">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>240</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(0,0,127);
+font:14pt&quot;Ebrima&quot;;</string>
+    </property>
+    <property name="text">
+     <string>longitude:</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

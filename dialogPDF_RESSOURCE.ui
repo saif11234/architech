@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogRESSOURCE</class>
+ <widget class="QDialog" name="DialogRESSOURCE">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>968</width>
+    <height>649</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Liste des ressources</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 85, 127);
+background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="pdfContainer" native="true">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>941</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Quitter">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>590</y>
+     <width>148</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Style de base du bouton bleu */
+QPushButton {
+    background-color: #2196F3;  /* Bleu vif */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    min-width: 100px;
+    
+    /* Gradient bleu */
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                              stop:0 #42A5F5, stop:1 #1976D2);
+    
+    /* Ombre portée */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Effet au survol */
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                              stop:0 #64B5F6, stop:1 #1E88E5);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Effet quand pressé */
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                              stop:0 #1976D2, stop:1 #0D47A1);
+    padding-top: 13px;  /* Effet d'enfoncement */
+    padding-bottom: 11px;
+}
+
+/* État désactivé */
+QPushButton:disabled {
+    background: #BBDEFB;
+    color: #757575;
+    box-shadow: none;
+}
+
+/* Style optionnel pour icône */
+QPushButton::icon {
+    margin-right: 8px;
+}</string>
+   </property>
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="TelechargerListRessources">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>590</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Style de base du bouton bleu */
+QPushButton {
+    background-color: #2196F3;  /* Bleu vif */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    min-width: 100px;
+    
+    /* Gradient bleu */
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                              stop:0 #42A5F5, stop:1 #1976D2);
+    
+    /* Ombre portée */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Effet au survol */
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                              stop:0 #64B5F6, stop:1 #1E88E5);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Effet quand pressé */
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                              stop:0 #1976D2, stop:1 #0D47A1);
+    padding-top: 13px;  /* Effet d'enfoncement */
+    padding-bottom: 11px;
+}
+
+/* État désactivé */
+QPushButton:disabled {
+    background: #BBDEFB;
+    color: #757575;
+    box-shadow: none;
+}
+
+/* Style optionnel pour icône */
+QPushButton::icon {
+    margin-right: 8px;
+}</string>
+   </property>
+   <property name="text">
+    <string>Telecharger</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-51</y>
+     <width>1001</width>
+     <height>701</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 85, 127);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Shadow::Raised</enum>
+   </property>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>pdfContainer</zorder>
+  <zorder>Quitter</zorder>
+  <zorder>TelechargerListRessources</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,8 +1,11 @@
 <RCC>
     <qresource prefix="/">
-        <file>back.png</file>
         <file>logo.jpg</file>
+        <file>back.png</file>
+        <file>alerte.wav</file>
         <file>QmlMap.qml</file>
         <file>marker.png</file>
+        <file>GoldStar.png</file>
+        <file>GrayStar.png</file>
     </qresource>
 </RCC>

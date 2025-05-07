@@ -3,10 +3,9 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
-
+#include <QSqlQueryModel>
 class Connection
 {
-    QSqlDatabase db;
 public:
     Connection();
     bool createconnect();

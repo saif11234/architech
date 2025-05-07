@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mailing</class>
+ <widget class="QDialog" name="mailing">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLineEdit" name="objet">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>100</y>
+     <width>211</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="mail_3">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>80</y>
+     <width>211</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="corps">
+   <property name="geometry">
+    <rect>
+     <x>93</x>
+     <y>120</y>
+     <width>211</width>
+     <height>71</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>80</y>
+     <width>31</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>mail</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="envoyer">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>201</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Rechercher {
+    background-color: #FFDAB9; /* Couleur orange pâle */
+
+    border-radius: 15px; /* Arrondi du bouton */
+    padding: 6px; /* Espacement interne pour un meilleur aspect */
+    color: black; /* Couleur du texte */
+    font-weight: bold; /* Texte en gras pour une meilleure visibilité */
+}
+
+#Rechercher:hover {
+    background-color: #FFB347; }
+</string>
+   </property>
+   <property name="text">
+    <string>envoyer</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_20">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>100</y>
+     <width>31</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>objet</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
